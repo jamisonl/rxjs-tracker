@@ -1,0 +1,8 @@
+<div>
+  <input #searchBox (input)="search(searchBox.value)" placeholder="search for launches"/>
+  <ul>
+    <li *ngFor="let launch of launches$ | async">
+      <a routerLink="/detail/{{launch.flight_number}}">{{launch.mission_name}}</a>
+    </li>
+  </ul>
+</div>

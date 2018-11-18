@@ -1,0 +1,6 @@
+<h2>Past Launches</h2>
+<div *ngIf='past'>
+  <ul>
+    <li *ngFor="let p of past"><a routerLink="/detail/{{p.flight_number}}">{{p.mission_name}}</a></li>
+  </ul>
+</div>

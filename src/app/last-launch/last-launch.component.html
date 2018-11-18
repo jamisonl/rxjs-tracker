@@ -1,0 +1,11 @@
+<div *ngIf="launch">
+  <ul>
+      Last Launch
+    <li>{{launch.mission_name}}, flight # {{launch.flight_number}}</li>
+    <li>{{launch.details}}</li>
+    <li>Launched on {{launch.launch_date_local | date:"medium"}}</li>
+    <a routerLink="/detail/{{launch.flight_number}}">
+    <span>{{launch.mission_name}}</span>
+    </a>
+  </ul>
+</div>

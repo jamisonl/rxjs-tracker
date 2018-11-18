@@ -1,0 +1,53 @@
+<div *ngIf="launch">
+  <img
+    src="{{launch.links.mission_patch_small}}"
+    alt="{{launch.mission_name}}"
+    width="300"
+  />
+  <div>
+    <ul>
+      <li>{{ launch.details }}</li>
+      <li>flight num {{ launch.flight_number }}</li>
+      <li>launch name {{ launch.mission_name }}</li>
+      <li *ngIf="launch.mission_id">id: {{ launch.mission_id }}</li>
+      <li>{{ launch.launch_date_local | date: "medium" }}</li>
+      <li *ngIf="launch.rocket.first_stage.cores">{{launch.rocket.rocket_name}} Block {{launch.rocket.first_stage.cores[0].block}}</li>
+      <li>Successful landing: {{launch.rocket.first_stage.cores[0].land_success}}</li>
+      <li *ngIf="launch.rocket.second_stage">second stage block {{ launch.rocket.second_stage.block }}</li>
+      <li>image gallery: {{ launch.links.flickr_images.length }}</li>
+      <li *ngIf="launch.links.wikipedia">
+        <a
+          href="{{launch.links.wikipedia}}"
+          rel="noopener norefferer"
+          target="_blank"
+          >wikipedia</a
+        >
+      </li>
+      <li *ngIf="launch.links.video_link">
+        <a
+          href="{{launch.links.video_link}}"
+          rel="noopener norefferer"
+          target="blank"
+          >video</a
+        >
+      </li>
+      <li *ngFor="let payload of launch.rocket.second_stage.payloads">{{payload.payload_type}} manafactured by {{payload.manufacturer}} for {{payload.customers[0]}} weighing {{payload.payload_mass_kg}} KGs. Designated orbit: {{payload.orbit}}</li>
+    </ul>
+    <!--
+      <div class="carousel" *ngIf="launch.links.flickr_images">
+        <ul class="imgs" *ngFor="let pics of launch.links.flickr_images">
+          <li class="img">
+            <a href={{pics}} rel="noopener norefferer" target="_blank">
+              <img src={{pics}} width="50px">
+            </a>
+          </li>
+        </ul>
+      </div>
+    -->
+  </div>
+
+
+  
+
+  <button (click)="goBack()">back</button>
+</div>

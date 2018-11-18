@@ -1,0 +1,11 @@
+<div *ngIf="next">
+  <ul>
+    Next Launch
+    <li>{{next.mission_name}}, flight # {{next.flight_number}}</li>
+    <li>{{next.details}}</li>
+    <li>Launch scheduled for {{next.launch_date_local | date: "medium"}}</li>
+    <a routerLink="/detail/{{next.flight_number}}">
+    <span>{{next.mission_name}}</span>
+    </a>
+  </ul>
+</div>
