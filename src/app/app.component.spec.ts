@@ -34,10 +34,28 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('a').textContent).toContain('Launch Tracker');
   });
-  // it('should have the correct route for Previous Launches', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   let href = fixture.debugElement.query(By.css('.nav')).nativeElement.getAttribute('href');
-  //   expect(href).toEqual('/past')
-  //   console.log(href)
-  // })
+  it('should have the correct route for Launch Tracker title anchor element', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const href = fixture.debugElement.query(By.css('.main-header')).nativeElement.getAttribute('href');
+    expect(href).toEqual('/dashboard')
+  })
+  it('should have the correct route for Previous Launches', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const href = fixture.debugElement.query(By.css('.nav-past')).nativeElement.getAttribute('href');
+    expect(href).toEqual('/past')
+  })
+  it('should have the correct route for home', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const href = fixture.debugElement.query(By.css('.nav-home')).nativeElement.getAttribute('href');
+    expect(href).toEqual('/dashboard')
+  })
+  it('should have the correct route for Upcoming Launches', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const href = fixture.debugElement.query(By.css('.nav-up')).nativeElement.getAttribute('href');
+    expect(href).toEqual('/upcoming')
+  })
 });
