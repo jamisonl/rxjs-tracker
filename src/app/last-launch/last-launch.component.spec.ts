@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LastLaunchComponent } from './last-launch.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('LastLaunchComponent', () => {
   let component: LastLaunchComponent;
@@ -8,7 +10,8 @@ describe('LastLaunchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LastLaunchComponent ]
+      declarations: [ LastLaunchComponent ],
+      imports: [ RouterTestingModule, HttpClientModule ]
     })
     .compileComponents();
   }));

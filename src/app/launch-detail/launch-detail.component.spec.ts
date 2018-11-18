@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LaunchDetailComponent } from './launch-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LaunchDetailComponent', () => {
   let component: LaunchDetailComponent;
@@ -8,7 +10,8 @@ describe('LaunchDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LaunchDetailComponent ]
+      declarations: [ LaunchDetailComponent ],
+      imports: [ RouterTestingModule, HttpClientModule ]
     })
     .compileComponents();
   }));

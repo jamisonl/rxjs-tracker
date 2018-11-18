@@ -1,6 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { RouterLinkWithHref } from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -26,10 +28,16 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('launch-tracker');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render title in an anchor element', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to launch-tracker!');
+    expect(compiled.querySelector('a').textContent).toContain('Launch Tracker');
   });
+  // it('should have the correct route for Previous Launches', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   let href = fixture.debugElement.query(By.css('.nav')).nativeElement.getAttribute('href');
+  //   expect(href).toEqual('/past')
+  //   console.log(href)
+  // })
 });
